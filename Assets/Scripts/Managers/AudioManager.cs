@@ -19,6 +19,13 @@ public class AudioManager : Singleton<AudioManager>
         SetupUiInteractionAudio();
         SetupBackgroundMusic();
     }
+    private void Update()
+    {
+        if(!backgroundMusic.isPlaying)
+        {
+            PlayBackgroundMusic();
+        }
+    }
     private void SetupUiInteractionAudio()
     {
         uiInteraction.clip = audioFiles.uiInteractionAudio;
@@ -36,12 +43,15 @@ public class AudioManager : Singleton<AudioManager>
     }
     private void SetupBackgroundMusic()
     {
-        backgroundMusic.clip = audioFiles.backgroundSongs[UnityEngine.Random.Range(0, audioFiles.backgroundSongs.Count)];
         OnVolumeChange(backgroundMusic, PlayerData.Instance.GetBgMusicVolume());
     }
-
+    public void AddBackgroundSong() 
+    {
+        backgroundMusic.clip = audioFiles.backgroundSongs[UnityEngine.Random.Range(0, audioFiles.backgroundSongs.Count)];
+    }
     public void PlayBackgroundMusic()
     {
+        AddBackgroundSong();
         backgroundMusic.Play();
     }
     public void PlaySFX(bool pick)

@@ -37,7 +37,7 @@ public class GameManager : Singleton<GameManager>
     }
     private void Start()
     {
-        AudioManager.Instance.PlayBackgroundMusic();
+        //AudioManager.Instance.PlayBackgroundMusic();
     }
 
     public void StartGame()
