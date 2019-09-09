@@ -11,15 +11,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd81f85f79e07ad48a2ff4b16eb230da, type: 3}
   m_Name: Audios
   m_EditorClassIdentifier: 
-  wrongChoiceAudio: {fileID: 0}
-  rightChoiceAudio: {fileID: 0}
-  wrongChoiceSFX: {fileID: 8300000, guid: 159652fe20de54484882d0914255f574, type: 3}
-  rightChoiceSFX: {fileID: 8300000, guid: a4733a700309ac04188c5580d5fbd2e5, type: 3}
   uiInteractionAudio: {fileID: 8300000, guid: ba68a2d0d83e95d4298fd4d9f35a53cd, type: 3}
+  timerTick: {fileID: 8300000, guid: ba68a2d0d83e95d4298fd4d9f35a53cd, type: 3}
   backgroundSongs:
   - {fileID: 8300000, guid: 3efd8e32b36eac842832f2c981df1414, type: 3}
   - {fileID: 8300000, guid: 90ea2c994f1b5aa4db365215b8bd5df1, type: 3}
   - {fileID: 8300000, guid: 4c643cd6a1be87443b765896524c6919, type: 3}
   - {fileID: 8300000, guid: 6764039c6110cbc4eaaa15522184bd99, type: 3}
   - {fileID: 8300000, guid: 77a7ea66bc8563543aede74d7ebfeee8, type: 3}
+  wrongChoiceSFX: {fileID: 8300000, guid: 0146a011e591b1d45bec020b3b3703ff, type: 3}
+  rightChoiceSFX: {fileID: 8300000, guid: a4733a700309ac04188c5580d5fbd2e5, type: 3}
+  wrongChoiceAudio: {fileID: 0}
+  rightChoiceAudio: {fileID: 0}
   questionsAudio: []

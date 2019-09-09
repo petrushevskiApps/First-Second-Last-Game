@@ -54,6 +54,11 @@ public class AudioManager : Singleton<AudioManager>
         AddBackgroundSong();
         backgroundMusic.Play();
     }
+    public void PlayTimerTick()
+    {
+        SetupSoundEffects(audioFiles.timerTick);
+        soundEffects.Play();
+    }
     public void PlaySFX(bool pick)
     {
         if(pick)
@@ -87,7 +92,6 @@ public class AudioManager : Singleton<AudioManager>
     public void PlayUIInteraction()
     {
         uiInteraction.Play();
-
     }
 
     #region On Audio Settings Change

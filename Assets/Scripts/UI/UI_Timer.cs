@@ -12,8 +12,9 @@ public class UI_Timer : IPopup
 
     private void OnEnable()
     {
-        timer = 2;
-        TimerTick();
+        timer = 1;
+        SetTimerSprite(2);
+        Invoke("TimerTick", 1f);
         fader.SetActive(true);
 
     }
@@ -27,16 +28,21 @@ public class UI_Timer : IPopup
     {
         if (timer >= 0)
         {
-            timerImage.sprite = ticks[timer];
+            SetTimerSprite(timer);
             timer--;
             Invoke("TimerTick", 1f);
+            
         }
         else
         {
             TimerDone();
         }
+        AudioManager.Instance.PlayTimerTick();
     }
-
+    private void SetTimerSprite(int timer)
+    {
+        timerImage.sprite = ticks[timer];
+    }
     public override void Agree()
     {
         throw new System.NotImplementedException();

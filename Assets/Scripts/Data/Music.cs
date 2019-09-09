@@ -7,15 +7,21 @@ namespace Data
     [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Music", order = 3)]
     public class Music : ScriptableObject 
     {
-        
-        public AudioClip wrongChoiceAudio;
-        public AudioClip rightChoiceAudio;
+        [Header ("UI Interaction Audio")]
+        public AudioClip uiInteractionAudio;
+        public AudioClip timerTick;
+
+        [Header ("Backgroudn songs")]
+        public List<AudioClip> backgroundSongs;
+
+        [Header("Player Choice Sound Effects")]
         public AudioClip wrongChoiceSFX;
         public AudioClip rightChoiceSFX;
 
-        public AudioClip uiInteractionAudio;
+        [Header("Narrator Audio Files")]
+        public AudioClip wrongChoiceAudio;
+        public AudioClip rightChoiceAudio;
 
-        public List<AudioClip> backgroundSongs;
         public List<AudioClip> questionsAudio;
         
     }
