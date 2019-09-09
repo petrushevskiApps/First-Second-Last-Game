@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e78ba578f92bb4db4cd576c0ddb40d, type: 3}
+  m_Name: TextQuestions
+  m_EditorClassIdentifier: 
+  notificationText: Dokolku e aktivno ovaa podesuvawe, pra{awata vo igrata ke se pojavat
+    vo balon~to.
+  notificationImage: {fileID: 21300000, guid: 66b22806ad7c9c647ae8ac8dcbb0749d, type: 3}

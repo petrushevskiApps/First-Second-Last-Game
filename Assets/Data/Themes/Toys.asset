@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e88e7a8ffc71d4b93f20c1d074ef1a, type: 3}
+  m_Name: Toys
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1228630708229236, guid: 732519bc56488624fa37cef6344ffaa3, type: 2}
+  sprites:
+  - {fileID: 21300000, guid: d97b2b76bc30b344c858e8eeb7bbe7ab, type: 3}
+  - {fileID: 21300000, guid: 76b397919e47f7d42a3a013ebcc49cdf, type: 3}
+  - {fileID: 21300000, guid: 887f8c5ff874ac84c8a220ded14bd836, type: 3}
+  - {fileID: 21300000, guid: e624f3be7c7ee104bb63517e8388caa5, type: 3}
+  - {fileID: 21300000, guid: 8497f0c2089b0bd419954cf1049b126b, type: 3}
+  - {fileID: 21300000, guid: 2a3f1fd749aa19e45bacbaf87d1cdac9, type: 3}
+  - {fileID: 21300000, guid: e392c351c1dbc734883a94b142b54915, type: 3}
