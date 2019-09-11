@@ -77,6 +77,7 @@ public class UI_Settings : IScreen
         foreach (ISettings s in settings)
         {
             s.DiscardChanges();
+            s.ClearChange();
         }
         GoBack();
     }
@@ -101,7 +102,6 @@ public class UI_Settings : IScreen
         {
             if (s.IsSettingsChanged())
             {
-                s.ClearChange();
                 return true;
             }
         }

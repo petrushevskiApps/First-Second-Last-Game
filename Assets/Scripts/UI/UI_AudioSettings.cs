@@ -24,6 +24,7 @@ public class UI_AudioSettings : ISettings
             PlayerData.Instance.SaveBgMusicVolume(backgroundMusicSlider.value);
             PlayerData.Instance.SaveSFXVolume(sfxSlider.value);
             PlayerData.Instance.SaveAudioQuestionsVolume(audioQuestionsSlider.value);
+            ClearChange();
         }
     }
 
@@ -60,7 +61,7 @@ public class UI_AudioSettings : ISettings
     
     private void SetSFX()
     {
-        float value = PlayerData.Instance.GetAudioQuestionsVolume();
+        float value = PlayerData.Instance.GetSFXVolume();
         sfxSlider.value = value;
         SetText(sfxValueText, value);
 

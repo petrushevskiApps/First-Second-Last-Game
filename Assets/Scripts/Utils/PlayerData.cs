@@ -70,7 +70,7 @@ public class PlayerData : Singleton<PlayerData>
         {
             return PlayerPrefs.GetFloat(SETTINGS_BFADER_KEY);
         }
-        return DEFAULT_SLIDER;
+        return 0.3f;
     }
 
     public void SaveDecorationFader(float value)
@@ -83,21 +83,10 @@ public class PlayerData : Singleton<PlayerData>
         {
             return PlayerPrefs.GetFloat(SETTINGS_DFADER_KEY);
         }
-        return DEFAULT_SLIDER;
+        return 0.3f;
     }
 
-    public void SaveTextQuestionsState(bool isOn)
-    {
-        PlayerPrefs.SetInt(SETTINGS_VQUESTIONS_KEY, isOn ? 1 : 0);
-    }
-    public bool GetVisualQuestions()
-    {
-        if (PlayerPrefs.HasKey(SETTINGS_VQUESTIONS_KEY))
-        {
-            return PlayerPrefs.GetInt(SETTINGS_VQUESTIONS_KEY) == 1 ? true : false;
-        }
-        return DEFAULT_STATE;
-    }
+    
 
     public void SaveBackground(bool isOn)
     {
@@ -124,7 +113,7 @@ public class PlayerData : Singleton<PlayerData>
         {
             return PlayerPrefs.GetFloat(SETTINGS_BGMUSIC_KEY);
         }
-        return DEFAULT_VOLUME;
+        return 0.1f;
     }
 
     public void SaveAudioQuestionsVolume(float value)
@@ -137,7 +126,7 @@ public class PlayerData : Singleton<PlayerData>
         {
             return PlayerPrefs.GetFloat(SETTINGS_AQUESTIONS_KEY);
         }
-        return DEFAULT_VOLUME;
+        return 0.8f;
     }
 
     public void SaveSFXVolume(float value)
@@ -148,15 +137,30 @@ public class PlayerData : Singleton<PlayerData>
     {
         if (PlayerPrefs.HasKey(SETTINGS_SFX_KEY))
         {
-            return PlayerPrefs.GetFloat(SETTINGS_SFX_KEY);
+            float v = PlayerPrefs.GetFloat(SETTINGS_SFX_KEY);
+            return v;
         }
-        return DEFAULT_VOLUME;
+        return 0.3f;
     }
 
 
     #endregion
 
     #region Gameplay Settings
+
+    public void SaveTextQuestionsState(bool isOn)
+    {
+        PlayerPrefs.SetInt(SETTINGS_VQUESTIONS_KEY, isOn ? 1 : 0);
+    }
+    public bool GetVisualQuestions()
+    {
+        if (PlayerPrefs.HasKey(SETTINGS_VQUESTIONS_KEY))
+        {
+            return PlayerPrefs.GetInt(SETTINGS_VQUESTIONS_KEY) == 1 ? true : false;
+        }
+        return DEFAULT_STATE;
+    }
+
     public void SaveAudioQuestionsState(bool state)
     {
         PlayerPrefs.SetInt(SETTINGS_AQUESTIONS_STATE_KEY, state ? 1 : 0);

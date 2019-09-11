@@ -28,6 +28,7 @@ public class UI_GraphicsSettings : ISettings
             PlayerData.Instance.SaveBackgroundFader(backgroundFader.value);
             PlayerData.Instance.SaveDecorationFader(decorationFader.value);
             PlayerData.Instance.SaveTextQuestionsState(questionsToggle.isOn);
+            ClearChange();
         }
     }
 

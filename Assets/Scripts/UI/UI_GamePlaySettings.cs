@@ -40,6 +40,7 @@ public class UI_GamePlaySettings : ISettings
             PlayerData.Instance.SaveTextQuestionsState(textQuestionsToggle.isOn);
             PlayerData.Instance.SaveHelpModeState(helpModeToggle.isOn);
             PlayerData.Instance.SaveSpeedMode(speedSelector.value);
+            ClearChange();
         }
     }
     private void InitalizeSettings()
