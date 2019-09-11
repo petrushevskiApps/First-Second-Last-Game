@@ -17,6 +17,7 @@ public class NarratorCanvas : MonoBehaviour {
 
     private bool stopCoroutine = false;
 
+    private int questionNo = 0;
 
     private void Awake()
     {
@@ -24,23 +25,39 @@ public class NarratorCanvas : MonoBehaviour {
         spriteRenderer = GetComponent<Image>();
     }
 
-    public void InitializeNarratorAvatar() 
+    public void InitializeNarratorAvatar(int questionNo) 
     {
+        this.questionNo = questionNo;
         stopCoroutine = false;
         Question(0f);
     }
     public void Question(float waitTime)
     {
-        StartCoroutine(DelayCall(() => { ChangeSprite(neutral); }, waitTime, true));
+        StartCoroutine(DelayCall(() => 
+        {
+            ChangeSprite(neutral);
+            AudioManager.Instance.PlayNarratorQuestion(questionNo);
+
+        }, waitTime, true));
     }
     public void RightAnswer()
     {
         stopCoroutine = true;
-        StartCoroutine(DelayCall(() => { ChangeSprite(right); }, waitTime, false));
+        StartCoroutine(DelayCall(() => 
+        {
+            ChangeSprite(right);
+            AudioManager.Instance.PlayNarrator(true);
+
+        }, waitTime, false));
     }
     public void WrongAnswer() 
     {
-        StartCoroutine(DelayCall(() => { ChangeSprite(wrong); }, waitTime, true));
+        StartCoroutine(DelayCall(() => 
+        {
+            ChangeSprite(wrong);
+            AudioManager.Instance.PlayNarrator(false);
+
+        }, waitTime, true));
         Question(6f);
     }
 

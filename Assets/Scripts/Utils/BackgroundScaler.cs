@@ -9,12 +9,10 @@ public class BackgroundScaler : MonoBehaviour
 
     private float backgroundSize = 0;
 
-    private void Awake()
-    {
-        background = GetComponent<RectTransform>();
-    }
     public void Setup(RectTransform popupSize)
     {
+        if(background == null) background = GetComponent<RectTransform>();
+
         foreach (RectTransform o in transform.GetComponentInChildren<RectTransform>())
         {
             if (o.gameObject.activeSelf)

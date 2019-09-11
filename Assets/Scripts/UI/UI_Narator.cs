@@ -28,7 +28,7 @@ public class UI_Narator : IPopup
 
     public void Initialized(int selection)
     {
-        narrator.InitializeNarratorAvatar();
+        narrator.InitializeNarratorAvatar(selection);
         if(isBubbleActive) bubble.InitializeQuestion(selection);
         GameManager.Instance.levelManager.OnPlayerPick += Show;
     }
