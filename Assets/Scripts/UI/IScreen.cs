@@ -9,7 +9,11 @@ public abstract class IScreen : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            OnBackButtonPressed();
+            if(!UI_Manager.Instance.IsPopupActive())
+            {
+                OnBackButtonPressed();
+            }
+            
         }
     }
 }

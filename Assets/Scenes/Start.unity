@@ -2243,7 +2243,7 @@ Prefab:
     - target: {fileID: 224665785140070418, guid: 9ccd7faa76a302d4d89c899baf19dd23,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 194.47215
+      value: 194.47217
       objectReference: {fileID: 0}
     - target: {fileID: 224163307889349562, guid: 9ccd7faa76a302d4d89c899baf19dd23,
         type: 2}
@@ -12391,10 +12391,10 @@ MonoBehaviour:
     m_PressedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
+    m_NormalTrigger: test
+    m_HighlightedTrigger: test
     m_PressedTrigger: IsAudioAvailable
-    m_DisabledTrigger: Disabled
+    m_DisabledTrigger: test
   m_Interactable: 0
   m_TargetGraphic: {fileID: 1966536488}
   m_OnClick:

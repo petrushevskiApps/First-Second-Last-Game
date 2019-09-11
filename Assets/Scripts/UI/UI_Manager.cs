@@ -72,6 +72,15 @@ public class UI_Manager : Singleton<UI_Manager>
             else p.gameObject.SetActive(false);
         }
     }
+    public bool IsPopupActive()
+    {
+        foreach (IPopup p in popups)
+        {
+            if (p.gameObject.activeSelf) return true;
+        }
+        return false;
+    }
+    /* Popups */
     public void ShowSavePopup(Action callback)
     {
         ShowPopup<UI_Save>(callback);

@@ -83,5 +83,9 @@ public class UI_GamePlaySettings : ISettings
     {
         return isSettingsChanged;
     }
+    public override void ClearChange()
+    {
+        isSettingsChanged = false;
+    }
 }
 

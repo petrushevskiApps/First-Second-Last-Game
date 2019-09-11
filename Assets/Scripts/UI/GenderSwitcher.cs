@@ -69,4 +69,9 @@ public class GenderSwitcher : ISettings
     {
         return false;
     }
+
+    public override void ClearChange()
+    {
+        throw new NotImplementedException();
+    }
 }

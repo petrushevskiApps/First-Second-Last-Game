@@ -41,42 +41,44 @@ public class UI_AudioSettings : ISettings
         SetSFX();
         SetAudioQuestions();
     }
+    private void SetText(Text text, float value)
+    {
+        text.text = ValueToPercentString(value);
+    }
+
     private void SetAudioQuestions()
     {
-        audioQuestionsSlider.onValueChanged.AddListener(SetAQuestionsText);
-        audioQuestionsSlider.value = PlayerData.Instance.GetAudioQuestionsVolume();
+        float value = PlayerData.Instance.GetAudioQuestionsVolume();
+        audioQuestionsSlider.value = value;
+        SetText(audioQuestionsValueText, value);
+
+        audioQuestionsSlider.onValueChanged.AddListener(v => { SetText(audioQuestionsValueText, v); });
+        audioQuestionsSlider.onValueChanged.AddListener(SetSettingsChanged);
         audioQuestionsSlider.onValueChanged.AddListener(AudioManager.Instance.NarratorVolumeChange);
         
     }
-    private void SetAQuestionsText(float value)
-    {
-        audioQuestionsValueText.text = ValueToPercentString(value);
-        SetSettingsChanged();
-    }
-
+    
     private void SetSFX()
     {
-        sfxSlider.onValueChanged.AddListener(SetSFXText);
-        sfxSlider.value = PlayerData.Instance.GetSFXVolume();
+        float value = PlayerData.Instance.GetAudioQuestionsVolume();
+        sfxSlider.value = value;
+        SetText(sfxValueText, value);
+
+        sfxSlider.onValueChanged.AddListener(v => { SetText(sfxValueText, v); });
+        sfxSlider.onValueChanged.AddListener(SetSettingsChanged);
         sfxSlider.onValueChanged.AddListener(AudioManager.Instance.SFXVolumeChange);
-    }
-    private void SetSFXText(float value)
-    {
-        sfxValueText.text = ValueToPercentString(value);
-        SetSettingsChanged();
     }
 
     private void SetBackgroundMusic()
     {
-        backgroundMusicSlider.onValueChanged.AddListener(SetBgMusicText);
-        backgroundMusicSlider.value = PlayerData.Instance.GetBgMusicVolume();
+        float value = PlayerData.Instance.GetBgMusicVolume();
+        backgroundMusicSlider.value = value;
+        SetText(backgroundMusicValueText, value);
+
+        backgroundMusicSlider.onValueChanged.AddListener(v => { SetText(backgroundMusicValueText, v); });
+        backgroundMusicSlider.onValueChanged.AddListener(SetSettingsChanged);
         backgroundMusicSlider.onValueChanged.AddListener(AudioManager.Instance.BackgroundVolumeChange);
         
-    }
-    private void SetBgMusicText(float value)
-    {
-        backgroundMusicValueText.text = ValueToPercentString(value);
-        SetSettingsChanged();
     }
 
     private string ValueToPercentString(float value)
@@ -87,15 +89,24 @@ public class UI_AudioSettings : ISettings
     
     public override void DiscardChanges()
     {
+        backgroundMusicSlider.onValueChanged.RemoveAllListeners();
+        sfxSlider.onValueChanged.RemoveAllListeners();
+        audioQuestionsSlider.onValueChanged.RemoveAllListeners();
+
         InitalizeSettings();
     }
 
-    public void SetSettingsChanged()
+    public void SetSettingsChanged(float value)
     {
         isSettingsChanged = true;
     }
     public override bool IsSettingsChanged()
     {
         return isSettingsChanged;
+    }
+
+    public override void ClearChange()
+    {
+        isSettingsChanged = false;
     }
 }

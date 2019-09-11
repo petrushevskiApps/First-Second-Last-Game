@@ -99,7 +99,11 @@ public class UI_Settings : IScreen
     {
         foreach (ISettings s in settings)
         {
-            if (s.IsSettingsChanged()) return true;
+            if (s.IsSettingsChanged())
+            {
+                s.ClearChange();
+                return true;
+            }
         }
         return false;
     }

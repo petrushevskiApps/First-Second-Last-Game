@@ -90,4 +90,8 @@ public class UI_GraphicsSettings : ISettings
     {
         return isSettingsChanged;
     }
+    public override void ClearChange()
+    {
+        isSettingsChanged = false;
+    }
 }
