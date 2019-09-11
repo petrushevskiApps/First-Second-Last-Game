@@ -64,4 +64,9 @@ public class UI_Notification : IPopup
     {
         close.onClick.AddListener(Disagree);
     }
+
+    public override void OnBackButtonPressed()
+    {
+        Disagree();
+    }
 }

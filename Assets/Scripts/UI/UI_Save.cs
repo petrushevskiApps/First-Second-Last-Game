@@ -32,6 +32,9 @@ public class UI_Save : IPopup
         AudioManager.Instance.PlayUIInteraction();
         ClosePopup();
     }
-
+    public override void OnBackButtonPressed()
+    {
+        Disagree();
+    }
 
 }

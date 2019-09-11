@@ -6,6 +6,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public Action<bool> OnPlayerPick = (playerPick) => { };
+    public Action ShowNarrator = () => { };
 
     public List<GameObject> parentPosition;
     
@@ -66,6 +67,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
+            ToggleInteraction();
             GameManager.Instance.StopHelpMode();
             OnPlayerPick(true);
             AudioManager.Instance.PlaySFX(true);
@@ -86,18 +88,20 @@ public class LevelManager : MonoBehaviour
 
             if (fallenOrder.Count == 3)
             {
-                ActivateInteraction();
+                ShowNarrator();
+                ToggleInteraction(); 
                 ActivateHelpMode();
             }
         }
     }
-    private void ActivateInteraction()
+    private void ToggleInteraction()
     {
         foreach(FallingObjects f in fallenOrder)
         {
             f.ToggleButtonInteraction();
         }
     }
+ 
     private void ActivateHelpMode()
     {
         if (PlayerData.Instance.GetHelpModeState())

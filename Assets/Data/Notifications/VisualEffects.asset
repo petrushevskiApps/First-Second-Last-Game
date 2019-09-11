@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e78ba578f92bb4db4cd576c0ddb40d, type: 3}
   m_Name: VisualEffects
   m_EditorClassIdentifier: 
-  notificationText: Dokolku e aktivno ovaa podesuvawe, na to~no izberen predmet se
+  notificationText: Dokolku e aktivno ova postavuvawe, na to~no izberen predmet se
     pojavuvaat yvezdi~ki.#n( Bez efekti / So efekti )
   notificationImage: {fileID: 21300000, guid: 2f200a7ac3c74ff4697c196becdba0c0, type: 3}

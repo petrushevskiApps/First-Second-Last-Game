@@ -15,11 +15,9 @@ public class HelpMode : MonoBehaviour
     private void Awake()
     {
         GameManager.Instance.OnGameEnd += ClearHelpMode;
+        GameManager.Instance.OnLevelExited += ClearHelpMode;
     }
-    private void OnDisable()
-    {
-        
-    }
+
     private void ClearHelpMode()
     {
         if(hand != null)
@@ -42,7 +40,8 @@ public class HelpMode : MonoBehaviour
     IEnumerator StartHelpTimer()
     {
         yield return new WaitForSeconds(timerSeconds);
-        if(hand != null)
+
+        if (hand != null)
         {
             ToggleHand();
         }

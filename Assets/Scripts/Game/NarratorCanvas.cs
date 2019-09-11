@@ -8,6 +8,8 @@ public class NarratorCanvas : MonoBehaviour {
 
     Animator animator;
     Image spriteRenderer;
+    Button narratorButton;
+    [SerializeField] private GameObject particles;
 
     public Sprite neutral;
     public Sprite right;
@@ -23,10 +25,19 @@ public class NarratorCanvas : MonoBehaviour {
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<Image>();
+        narratorButton = GetComponent<Button>();
+        narratorButton.onClick.AddListener(OnNarratorClicked);
+    }
+    private void OnEnable()
+    {
+        SetupNarratorButton();
+        particles.SetActive(false);
     }
 
     public void InitializeNarratorAvatar(int questionNo) 
     {
+        gameObject.SetActive(true);
+
         this.questionNo = questionNo;
         stopCoroutine = false;
         Question(0f);
@@ -37,6 +48,7 @@ public class NarratorCanvas : MonoBehaviour {
         {
             ChangeSprite(neutral);
             AudioManager.Instance.PlayNarratorQuestion(questionNo);
+            ActivateParticles();
 
         }, waitTime, true));
     }
@@ -58,6 +70,7 @@ public class NarratorCanvas : MonoBehaviour {
             AudioManager.Instance.PlayNarrator(false);
 
         }, waitTime, true));
+
         Question(6f);
     }
 
@@ -71,6 +84,21 @@ public class NarratorCanvas : MonoBehaviour {
         Callback();
     }
 
+    private void OnNarratorClicked()
+    {
+        AudioManager.Instance.PlayNarratorQuestion(questionNo);
+    }
+    private void SetupNarratorButton()
+    {
+        narratorButton.interactable = PlayerData.Instance.GetAudioQuestionsState();
+    }
+    private void ActivateParticles()
+    {
+        if (PlayerData.Instance.GetVFX() && PlayerData.Instance.GetAudioQuestionsState())
+        {
+            particles.SetActive(true);
+        }
+    }
     private void ChangeSprite(Sprite sprite)
     {
         spriteRenderer.sprite = sprite;

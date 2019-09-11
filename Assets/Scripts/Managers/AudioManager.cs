@@ -73,20 +73,26 @@ public class AudioManager : Singleton<AudioManager>
     }
     public void PlayNarrator(bool pick)
     {
-        if (pick)
+        if(PlayerData.Instance.GetAudioQuestionsState())
         {
-            SetupNarrator(audioFiles.rightChoiceAudio);
+            if (pick)
+            {
+                SetupNarrator(audioFiles.rightChoiceAudio);
+            }
+            else
+            {
+                SetupNarrator(audioFiles.wrongChoiceAudio);
+            }
+            narrator.Play();
         }
-        else
-        {
-            SetupNarrator(audioFiles.wrongChoiceAudio);
-        }
-        narrator.Play();
     }
     public void PlayNarratorQuestion(int questionNo)
     {
-        SetupNarrator(audioFiles.questionsAudio[questionNo]);
-        narrator.Play();
+        if (PlayerData.Instance.GetAudioQuestionsState())
+        {
+            SetupNarrator(audioFiles.questionsAudio[questionNo]);
+            narrator.Play();
+        }
     }
 
     public void PlayUIInteraction()

@@ -30,6 +30,9 @@ public class UI_Exit : IPopup
         AudioManager.Instance.PlayUIInteraction();
         ClosePopup();
     }
-
+    public override void OnBackButtonPressed()
+    {
+        Disagree();
+    }
 
 }

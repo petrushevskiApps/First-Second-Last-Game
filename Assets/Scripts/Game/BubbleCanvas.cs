@@ -22,8 +22,12 @@ public class BubbleCanvas : MonoBehaviour {
 
     public void InitializeQuestion(int selection)
     {
+        gameObject.SetActive(true);
+
+
         this.selection = selection;
         stopCoroutine = false;
+        
         Question();
     }
 

@@ -51,4 +51,8 @@ public class UI_Timer : IPopup
     {
         throw new System.NotImplementedException();
     }
+    public override void OnBackButtonPressed()
+    {
+        Disagree();
+    }
 }

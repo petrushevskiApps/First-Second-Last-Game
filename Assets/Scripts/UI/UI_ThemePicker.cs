@@ -47,4 +47,8 @@ public class UI_ThemePicker : IPopup
         AudioManager.Instance.PlayUIInteraction();
         SetTheme(index);
     }
+    public override void OnBackButtonPressed()
+    {
+        Disagree();
+    }
 }

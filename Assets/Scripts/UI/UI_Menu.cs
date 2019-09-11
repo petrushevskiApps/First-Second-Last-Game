@@ -26,4 +26,9 @@ public class UI_Menu : IScreen
         Debug.Log("Exit game!");
         Application.Quit();
     }
+
+    public override void OnBackButtonPressed()
+    {
+        OnExitClicked();
+    }
 }

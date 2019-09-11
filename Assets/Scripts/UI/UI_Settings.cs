@@ -103,4 +103,9 @@ public class UI_Settings : IScreen
         }
         return false;
     }
+
+    public override void OnBackButtonPressed()
+    {
+        OnDiscardClicked();
+    }
 }

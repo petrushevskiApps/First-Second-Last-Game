@@ -2,44 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_Narator : IPopup
+public class UI_Narator : MonoBehaviour
 {
-    public override void Agree()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void Disagree()
-    {
-        throw new System.NotImplementedException();
-    }
-
+   
     public NarratorCanvas narrator;
     public BubbleCanvas bubble;
 
     private bool isBubbleActive = false;
 
-    private void OnEnable()
+    private void Awake()
     {
-        fader.SetActive(false);
-        CheckBubbleSettings();
-        Initialized(GameManager.Instance.GetQuestion());
+        narrator.gameObject.SetActive(false);
+        bubble.gameObject.SetActive(false);
+        GameManager.Instance.levelManager.ShowNarrator += OnShowNarrator;
     }
-
-    public void Initialized(int selection)
+    public void OnShowNarrator( )
     {
+        int selection = GameManager.Instance.GetQuestion();
+        CheckBubbleSettings();
+
         narrator.InitializeNarratorAvatar(selection);
         if(isBubbleActive) bubble.InitializeQuestion(selection);
+
         GameManager.Instance.levelManager.OnPlayerPick += Show;
     }
 
     private void OnDisable()
     {
         LevelManager levelManager = GameManager.Instance.levelManager;
+
         if (levelManager != null)
         {
             levelManager.OnPlayerPick -= Show;
         }
+
+        narrator.gameObject.SetActive(false);
+        bubble.gameObject.SetActive(false);
     }
 
     public void Show(bool playerPick)  
@@ -63,4 +61,5 @@ public class UI_Narator : IPopup
         isBubbleActive = PlayerData.Instance.GetVisualQuestions();
         bubble.gameObject.SetActive(isBubbleActive);
     }
+
 }

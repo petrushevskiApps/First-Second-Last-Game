@@ -31,4 +31,8 @@ public class UI_LevelComplete : IPopup
         GameManager.Instance.LevelExited();
         ClosePopup();
     }
+    public override void OnBackButtonPressed()
+    {
+        Disagree();
+    }
 }

@@ -33,4 +33,8 @@ public class UI_Pause : IPopup
         ClosePopup();
         Callback();
     }
+    public override void OnBackButtonPressed()
+    {
+        Agree();
+    }
 }

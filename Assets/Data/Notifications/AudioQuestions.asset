@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e78ba578f92bb4db4cd576c0ddb40d, type: 3}
   m_Name: AudioQuestions
   m_EditorClassIdentifier: 
-  notificationText: Dokolku e aktivno ovaa podesuvawe, pra{awata vo igrata ke bidat
+  notificationText: Dokolku e aktivno ova postavuvawe, pra{awata vo igrata }e bidat
     pro~itani na glas.
   notificationImage: {fileID: 0}
