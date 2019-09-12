@@ -25,14 +25,12 @@ public class GameManager : Singleton<GameManager>
     private GameObject bubble;
     private GameObject narrator;
 
-    private int level = 0;
-    private int maxLevel = 2;
-
     private int questionNumber = 1;
     private int themeIndex = 0;
 
     private void Awake()
     {
+        Application.targetFrameRate = 60;
         levelManager = GetComponent<LevelManager>();
     }
     private void Start()

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class NarratorCanvas : MonoBehaviour {
 
-    Animator animator;
     Image spriteRenderer;
     Button narratorButton;
     [SerializeField] private GameObject particles;
@@ -23,7 +22,6 @@ public class NarratorCanvas : MonoBehaviour {
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<Image>();
         narratorButton = GetComponent<Button>();
         narratorButton.onClick.AddListener(OnNarratorClicked);

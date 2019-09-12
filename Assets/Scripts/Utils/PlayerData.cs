@@ -24,12 +24,7 @@ public class PlayerData : Singleton<PlayerData>
 
     private const string SETTINGS_HELP_STATE = "helpModeKey";
     private const string SETTINGS_SPEED_MODE_KEY = "speedModeKey";
-    
 
-    private void Awake()
-    {
-        base.Awake();
-    }
 
     #region BasicSettings
     public void SaveGender(int gender)

@@ -13,7 +13,7 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] private AudioSource narrator;
     [SerializeField] private AudioSource uiInteraction; 
 
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
         SetupUiInteractionAudio();

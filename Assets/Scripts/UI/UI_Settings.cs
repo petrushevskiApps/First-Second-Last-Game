@@ -11,7 +11,7 @@ public class UI_Settings : IScreen
     [SerializeField] private Button save;
     [SerializeField] private Button discard;
     [SerializeField] private Button graphics;
-    [SerializeField] private Button audio;
+    [SerializeField] private Button audioButton; 
     [SerializeField] private Button gameplay;
 
     private void Awake()
@@ -28,7 +28,7 @@ public class UI_Settings : IScreen
         save.onClick.AddListener(OnSaveClicked);
         discard.onClick.AddListener(OnDiscardClicked);
         graphics.onClick.AddListener(ShowSettings<UI_GraphicsSettings>);
-        audio.onClick.AddListener(ShowSettings<UI_AudioSettings>);
+        audioButton.onClick.AddListener(ShowSettings<UI_AudioSettings>);
         gameplay.onClick.AddListener(ShowSettings<UI_GamePlaySettings>);
     }
 

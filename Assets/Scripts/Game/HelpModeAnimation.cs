@@ -8,7 +8,6 @@ public class HelpModeAnimation : MonoBehaviour
     private Vector3 endPosition;
 
     private bool endReached = false;
-    private bool startReached = false;
 
     private void OnEnable()
     {

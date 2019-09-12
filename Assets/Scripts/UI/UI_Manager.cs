@@ -9,8 +9,9 @@ public class UI_Manager : Singleton<UI_Manager>
     [SerializeField] private List<IScreen> screens;
     [SerializeField] private List<IPopup> popups;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         CloseAllScreens();
         CloseAllPopups();
         ShowMainScreen();
